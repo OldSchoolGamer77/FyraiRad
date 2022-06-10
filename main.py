@@ -136,13 +136,16 @@ while game_info.no_winner:
                 print("Player 1 after move")
                 
                 is_valid_move = game_info.netThread.net.receive()
+                print("after is valid move before if")
                 if is_valid_move == 0:
                     print("is valid move before cont")
                     continue
                 
+
                 else:
                     board_array = is_valid_move
                     board_array = json.loads(board_array)
+                    print("else is valid move before win")
                     win = game_info.netThread.net.receive()
                     print("else if win Player 1")
                     #if win != 0:
@@ -152,7 +155,8 @@ while game_info.no_winner:
             
 
                             
-            elif game_info.player == 2:
+            #elif game_info.player == 2:
+            else:
                 print("Player 2 before move")
                 game_info.mousex = event.pos[0]
                 col = int(math.floor(game_info.mousex/game_info.SQUARE_SIZE))
